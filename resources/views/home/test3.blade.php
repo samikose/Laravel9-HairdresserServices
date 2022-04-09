@@ -6,10 +6,11 @@
 <body>
 
 <h1>This is test parameters</h1>
-First Name : {{$fname}}
+Id Value : {{$id}}
 <br>
-Last Name : {{$lname}}
-
+Number Value : {{$number}}
+<br>
+Sum Params : {{$id+$number}}
 
 </body>
 </html>
