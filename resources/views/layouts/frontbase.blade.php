@@ -26,10 +26,12 @@
     @yield("head")
 </head>
 <body>
+
+
 @include("home.header")
 
-
-@section('slider')
+@section('slide')
+    @include("home.slider")
 @show
 
 @yield('content')
