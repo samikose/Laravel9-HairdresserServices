@@ -20,7 +20,7 @@
     @yield("head")
 </head>
 <body>
-
+<div class="container-scroller">
 @section('sidebar')
     @include("admin.sidebar")
 @show
@@ -31,7 +31,7 @@
 
 @yield('content')
 
-
+</div>
 @include("admin.footer")
 @yield('foot')
 
