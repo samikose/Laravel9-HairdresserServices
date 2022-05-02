@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item" href="/admin">Home</li>
+                            <li class="breadcrumb-item" href="{{route('admin.index')}}">Home</li>
                             <li class="breadcrumb-item active">Edit Category</li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="card-header">
                     <h3 class="card-title">Category Elements</h3>
                 </div>
-                <form role="form" action="/admin/category/update/{{$data->id}}" method="POST">
+                <form role="form" action="{{route('admin.category.update',['id'=>$data->id])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="form-group">

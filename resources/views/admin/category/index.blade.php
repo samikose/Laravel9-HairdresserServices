@@ -7,7 +7,7 @@
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="page-header">
-                <h1>Category List</h1>
+                <a href="{{route('admin.category.create')}}" class="btn btn-outline-secondary btn-success btn-icon-text">Add Category</a>
         </div>
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
@@ -36,11 +36,16 @@
                                     <td>{{$rs->title}}</td>
                                     <td>{{$rs->keywords}}</td>
                                     <td>{{$rs->description}}</td>
-                                    <td>{{$rs->image}}</td>
+                                    <td>
+                                        @if ($rs->image)
+                                        <img src="{{Storage::url($rs->image)}}" style="height: 40px">
+                                        @endif
+                                    </td>
                                     <td>{{$rs->status}}</td>
-                                    <td><a href="/admin/category/edit/{{$rs->id}}" class="btn btn-outline-secondary btn-icon-text">Edit</a></td>
-                                    <td><a href="/admin/category/delete/{{$rs->id}}" class="btn btn-outline-secondary btn-danger btn-icon-text">Delete</a></td>
-                                    <td><a href="/admin/category/show/{{$rs->id}}" class="btn btn-outline-secondary btn-success btn-icon-text">Show</a></td>
+                                    <td><a href="{{route('admin.category.edit',['id'=>$rs->id])}}" class="btn btn-outline-secondary btn-icon-text">Edit</a></td>
+                                    <td><a href="{{route('admin.category.destroy',['id'=>$rs->id])}}" class="btn btn-outline-secondary btn-danger btn-icon-text"
+                                        onclick="return confirm('Deleting !! Are you sure ?')">Delete</a></td>
+                                    <td><a href="{{route('admin.category.show',['id'=>$rs->id])}}" class="btn btn-outline-secondary btn-success btn-icon-text">Show</a></td>
                                 </tr>
                                 @endforeach
                                 </tbody>

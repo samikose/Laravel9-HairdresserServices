@@ -53,13 +53,15 @@
                 </div>
             </div>
         </li>
-        <li class="nav-item nav-category">
-            <span class="nav-link">Navigation</span>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/admin">
+                <i class="mdi mdi-home"></i>
+                Dashboard
+            </a>
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-              <span class="menu-icon">
-                <i class="mdi mdi-speedometer"></i>
+                <i class="mdi mdi-calendar-blank"></i>
               </span>
                 <span class="menu-title">Appointment</span>
                 <i class="menu-arrow"></i>
@@ -74,13 +76,13 @@
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link" href="/admin/category">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-apps"></i>
                 Categories
             </a>
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link" href="/admin/service">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-apps"></i>
                 Services
             </a>
         </li>
@@ -103,23 +105,22 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/social">
-                <i class="nav-icon fas fa-th"></i>
-                Social
-            </a>
-        </li>
-        <li class="nav-item menu-items">
             <a class="nav-link" href="/admin/user">
                 <i class="mdi mdi-account"></i>
                 Users
+            </a>
+        </li>
+        <li class="nav-item menu-items">
+            <a class="nav-link" href="/admin/social">
+                <i class="mdi mdi-apps"></i>
+                Social
             </a>
         </li>
         <li class="nav-header">LABELS</li>
         <li class="nav-item">
             <a href="/admin/setting" class="nav-link">
                 <i class="mdi mdi-settings"></i>
-                <i class="nav-icon fas fa-tools"></i>
-                <p class="text">Settings</p>
+                Settings
             </a>
         </li>
 
