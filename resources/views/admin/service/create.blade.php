@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Add Service')
 
 
 @section('content')
@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-1">
-                        <h1>Add Category</h1>
+                        <h1>Add Service</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item" href="{{route('admin.index')}}">Home</li>
-                            <li class="breadcrumb-item active">Add Category</li>
+                            <li class="breadcrumb-item active">Add Service</li>
                         </ol>
                     </div>
                 </div>
@@ -24,17 +24,16 @@
         <section class="content">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Category Elements</h3>
+                    <h3 class="card-title">Service Elements</h3>
                 </div>
-                <form role="form" action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{route('admin.service.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
 
                         <div class="form-group">
-                            <label>Parent Category</label>
+                            <label>Parent Service</label>
 
-                            <select class="form-control select2" name="parent_id">
-                                <option value="0" selected="selected">Main Category</option>
+                            <select class="form-control select2" name="service_id">
                                 @foreach($data as $rs)
                                     <option value="{{$rs->id}}">{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }} </option>
                                 @endforeach
@@ -54,7 +53,16 @@
                             <label for="example">Description</label>
                             <input type="text" class="form-control" name="description" placeholder="description">
                         </div>
+                        <div class="form-group">
+                            <label for="example">Price</label>
+                            <input type="number" class="form-control" name="price" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Description</label>
+                            <textarea class="form-control" name="detail">
 
+                            </textarea>
+                        </div>
 
                         <div class="form-group">
                             <label for="exampleInputFile">Image</label>

@@ -1,6 +1,6 @@
 @extends('layouts.adminbase')
 
-@section('title', 'Add Category')
+@section('title', 'Edit Service :',$data->title)
 
 
 @section('content')
@@ -9,12 +9,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-1">
-                        <h1>Add Category</h1>
+                        <h1>Edit Service: {{$data->title}}</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item" href="{{route('admin.index')}}">Home</li>
-                            <li class="breadcrumb-item active">Add Category</li>
+                            <li class="breadcrumb-item active">Edit Service</li>
                         </ol>
                     </div>
                 </div>
@@ -24,19 +24,20 @@
         <section class="content">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Category Elements</h3>
+                    <h3 class="card-title">Service Elements</h3>
                 </div>
-                <form role="form" action="{{route('admin.category.store')}}" method="POST" enctype="multipart/form-data">
+                <form role="form" action="{{route('admin.service.update',['id'=>$data->id])}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
 
                         <div class="form-group">
                             <label>Parent Category</label>
 
-                            <select class="form-control select2" name="parent_id">
-                                <option value="0" selected="selected">Main Category</option>
-                                @foreach($data as $rs)
-                                    <option value="{{$rs->id}}">{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }} </option>
+                            <select class="form-control select2" name="category_id">
+                                @foreach($datalist as $rs)
+                                    <option value="{{$rs->id}}" @if ($rs->id == $data->category_id) selected="selected" @endif >
+                                        {{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title)}}
+                                    </option>
                                 @endforeach
                             </select>
 
@@ -44,15 +45,25 @@
 
                         <div class="form-group">
                             <label for="example">Title</label>
-                            <input type="text" class="form-control" name="title" placeholder="title">
+                            <input type="text" class="form-control" name="title" value="{{$data->title}}">
                         </div>
                         <div class="form-group">
                             <label for="example">Keywords</label>
-                            <input type="text" class="form-control" name="keywords" placeholder="keywords">
+                            <input type="text" class="form-control" name="keywords" value="{{$data->keywords}}">
                         </div>
                         <div class="form-group">
                             <label for="example">Description</label>
-                            <input type="text" class="form-control" name="description" placeholder="description">
+                            <input type="text" class="form-control" name="description" value="{{$data->description}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="example">Price</label>
+                            <input type="number" class="form-control" name="price" value="{{$data->price}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Detail Information</label>
+                            <textarea class="form-control" name="detail">
+                                    {{$data->detail}}
+                            </textarea>
                         </div>
 
 
@@ -68,6 +79,7 @@
                         <div class="form-group">
                             <label>Status</label>
                             <select class="form-control" name="status">
+                                <option selected>{{$data->status}}</option>
                                 <option>True</option>
                                 <option>False</option>
                             </select>
@@ -76,7 +88,7 @@
                     </div>
 
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Update Data</button>
                     </div>
                 </form>
 
