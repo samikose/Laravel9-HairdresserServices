@@ -6,6 +6,6 @@
 @section('content')
     <div class="main-panel">
         <div class="content-wrapper">
-        </div>
-    </div>
+        <h1>test</h1>
+
 @endsection

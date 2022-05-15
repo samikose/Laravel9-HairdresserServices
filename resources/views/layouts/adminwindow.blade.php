@@ -21,18 +21,11 @@
 </head>
 <body>
 <div class="container-scroller">
-@section('sidebar')
-    @include("admin.sidebar")
-@show
-
-
-@include("admin.header")
 
 
 @yield('content')
 
 
-@include("admin.footer")
 @yield('foot')
 
 </body>
