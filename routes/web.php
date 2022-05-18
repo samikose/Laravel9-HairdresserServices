@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminPanel\AdminServiceController;
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
 use App\Http\Controllers\AdminPanel\CategoryController as AdminCategoryController;
@@ -30,6 +31,9 @@ Route::get('/welcome', function () {
 
 //3- Call Controller Function
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/services',[ServiceController::class,'index'])->name('service');
+
+
 
 //4- Route-> Controller->View
 Route::get('/test',[HomeController::class,'test'])->name('test');

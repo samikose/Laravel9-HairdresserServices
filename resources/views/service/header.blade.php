@@ -12,7 +12,7 @@
 <!-- Preloader Start -->
 <header>
     <!--? Header Start -->
-    <div class="header-area header-transparent pt-20">
+    <div class="header-area header-transparent">
         <div class="main-header header-sticky">
             <div class="container-fluid">
                 <div class="row align-items-center">
@@ -28,9 +28,9 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li class="active"><a href="/">Home</a></li>
+                                        <li><a href="/">Home</a></li>
                                         <li><a href="about.html">About</a></li>
-                                        <li><a href="/services">Services</a></li>
+                                        <li class="active"><a href="services.html">Services</a></li>
                                         <li><a href="portfolio.html">Portfolio</a></li>
                                         <li><a href="blog.html">Blog</a>
                                             <ul class="submenu">
