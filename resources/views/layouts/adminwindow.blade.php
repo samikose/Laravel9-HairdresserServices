@@ -22,11 +22,13 @@
 <body>
 <div class="container-scroller">
 
-
+<div>
 @yield('content')
+<div/>
 
 
 @yield('foot')
+
 
 </body>
 </html>
