@@ -19,7 +19,7 @@
                     <!-- Logo -->
                     <div class="col-xl-2 col-lg-2 col-md-1">
                         <div class="logo">
-                            <a href="index.html"><img src="{{asset('assets')}}/img/logo/logo.png" alt=""></a>
+                            <a href="/"><img src="{{asset('assets')}}/img/logo/logo.png" alt=""></a>
                         </div>
                     </div>
                     <div class="col-xl-10 col-lg-10 col-md-10">
@@ -29,9 +29,9 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li class="active"><a href="/">Home</a></li>
-                                        <li><a href="about.html">About</a></li>
-                                        <li><a href="/services">Services</a></li>
-                                        <li><a href="portfolio.html">Portfolio</a></li>
+                                        <li><a href="{{route('about')}}">About</a></li>
+                                        <li><a href="{{route('service')}}">Services</a></li>
+                                        <li><a href="{{route('references')}}">References</a></li>
                                         <li><a href="blog.html">Blog</a>
                                             <ul class="submenu">
                                                 <li><a href="blog.html">Blog</a></li>
@@ -39,7 +39,7 @@
                                                 <li><a href="elements.html">Element</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="{{route('contact')}}">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
