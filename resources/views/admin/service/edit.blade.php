@@ -60,6 +60,10 @@
                             <input type="number" class="form-control" name="price" value="{{$data->price}}">
                         </div>
                         <div class="form-group">
+                            <label for="example">Tip</label>
+                            <input type="number" class="form-control" name="tip" value="{{$data->tip}}">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Detail Information</label>
                             <textarea class="form-control" name="detail">
                                     {{$data->detail}}
@@ -94,7 +98,5 @@
 
             </div>
         </section>
-
-
     </div>
 @endsection

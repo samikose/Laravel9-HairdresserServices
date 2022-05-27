@@ -2,7 +2,9 @@
 
 @section('title', 'Add Service')
 
-
+@section('head')
+    <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+@endsection
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
@@ -33,7 +35,7 @@
                         <div class="form-group">
                             <label>Parent Service</label>
 
-                            <select class="form-control select2" name="service_id">
+                            <select class="form-control select2" name="category_id" style="width: 100%">
                                 @foreach($data as $rs)
                                     <option value="{{$rs->id}}">{{ \App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs, $rs->title) }} </option>
                                 @endforeach
@@ -58,10 +60,24 @@
                             <input type="number" class="form-control" name="price" value="0">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Description</label>
-                            <textarea class="form-control" name="detail">
+                            <label for="example">Tip</label>
+                            <input type="number" class="form-control" name="tip" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Detail Inf.</label>
+                            <textarea class="form-control" id="detail" name="detail">
 
                             </textarea>
+                            <script>
+                                ClassicEditor
+                                    .create( document.querySelector( '#detail' ) )
+                                    .then( editor => {
+                                        console.log( editor );
+                                    } )
+                                    .catch( error => {
+                                        console.error( error );
+                                    } );
+                            </script>
                         </div>
 
                         <div class="form-group">
