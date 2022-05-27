@@ -29,9 +29,12 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-//3- Call Controller Function
+// ******************************** HOME PAGE ROUTES ***********************
 Route::get('/',[HomeController::class,'index'])->name('home');
-Route::get('/services',[ServiceController::class,'index'])->name('service');
+Route::get('/service',[HomeController::class,'service'])->name('service');
+Route::get('/about',[HomeController::class,'about'])->name('about');
+Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('/references',[HomeController::class,'references'])->name('references');
 
 
 
@@ -53,6 +56,10 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // ******************************** ADMIN PANEL ROUTES ***********************
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminHomeController::class, 'index'])->name('index');
+    // ******************************** General ROUTES ***********************
+    Route::get('/setting', [AdminHomeController::class, 'setting'])->name('setting');
+    Route::post('/setting', [AdminHomeController::class, 'settingUpdate'])->name('setting.update');
+
 // ******************************** ADMIN CATEGORY ROUTES ***********************
     Route::prefix('/category')->name('category.')->controller(AdminCategoryController::class)->group(function () {
         Route::get('/','index')->name('index');

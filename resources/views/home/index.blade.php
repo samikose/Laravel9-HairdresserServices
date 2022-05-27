@@ -1,6 +1,10 @@
 @extends('layouts.frontbase')
 
-@section('title', 'Barber Shop')
+@section('title', $setting->title)
+@section('description', $setting->description)
+@section('keywords', $setting->keywords)
+@section('icon', Storage::url($setting->icon))
+
 @section('slider')
     @include('home.slider')
 @endsection
@@ -103,7 +107,7 @@
                 <!-- single Tem -->
                 <div class="col-xl-4 col-lg-4 col-md-6 col-sm-">
                     <div class="single-team mb-80 text-center">
-                        <div class="team-img">
+                        <div class="test">
                             <img src="{{asset('assets')}}/img/gallery/team1.png" alt="">
                         </div>
                         <div class="team-caption">

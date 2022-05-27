@@ -22,6 +22,7 @@
                                     <th> Category </th>
                                     <th> Title </th>
                                     <th> Price </th>
+                                    <th> Tip </th>
                                     <th> Image </th>
                                     <th> Image Gallery</th>
                                     <th> Status </th>
@@ -37,6 +38,7 @@
                                     <td>{{\App\Http\Controllers\AdminPanel\CategoryController::getParentsTree($rs->category, $rs->category->title)}} </td>
                                     <td>{{$rs->title}}</td>
                                     <td>{{$rs->price}}</td>
+                                    <td>{{$rs->tip}}</td>
                                     <td>
                                         @if ($rs->image)
                                         <img src="{{Storage::url($rs->image)}}" style="height: 40px">

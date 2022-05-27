@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Service;
+use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -10,7 +13,49 @@ class HomeController extends Controller
     //
     public function index()
     {
-        return view('home.index');
+        $page='home';
+        $setting= Setting::first();
+        return view('home.index',[
+            'page'=>$page,
+            'setting'=>$setting
+        ]);
+    }
+
+    public function about()
+    {
+        $setting= Setting::first();
+        return view('home.about',[
+            'setting'=>$setting
+        ]);
+    }
+
+    public function references()
+    {
+        $setting= Setting::first();
+        return view('home.references',[
+            'setting'=>$setting
+        ]);
+    }
+
+    public function contact()
+    {
+        $setting= Setting::first();
+        return view('home.contact',[
+            'setting'=>$setting
+        ]);
+    }
+
+    public function service(){
+        $page='home';
+        $categorylist1=Category::limit(6)->get();
+        $sliderdata=Service::limit(4)->get();
+        $setting= Setting::first();
+        return view('home.service',[
+            'categorylist1'=>$categorylist1,
+            'sliderdata'=>$sliderdata,
+            'page'=>$page,
+            'setting'=>$setting
+        ]);
     }
 
     public function test(){

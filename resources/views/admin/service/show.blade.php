@@ -60,8 +60,12 @@
                                     <td>{{$data->price}}</td>
                                 </tr>
                                 <tr>
+                                    <th>Tip</th>
+                                    <td>{{$data->tip}}</td>
+                                </tr>
+                                <tr>
                                     <th>Detail Inf</th>
-                                    <td>{{$data->detail}}</td>
+                                    <td>{!! $data->detail  !!}</td>
                                 </tr>
                                 <tr>
                                     <th>Image</th>
