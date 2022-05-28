@@ -64,38 +64,30 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-12">
-                        <h2 class="contact-title">Get in Touch</h2>
-                    </div>
-                    <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
-                                    </div>
-                                </div>
+                    <div class="col-lg-8 col-md-8">
+                        @include('home.messages')
+                        <form action="{{route("storemessage")}}" method="post">
+                            @csrf
+                            <div class="mt-10">
+                                <input type="text" name="name" placeholder="Name & Surname" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Name & Surname'" required="" class="single-input">
                             </div>
-                            <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                            <div class="mt-10">
+                                <input type="tel" name="phone" placeholder="Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone Number'" required="" class="single-input">
                             </div>
-                        </form>
-                    </div>
+                            <div class="mt-10">
+                                <input type="email" name="email" placeholder="Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email'" required="" class="single-input">
+                            </div>
+                            <div class="mt-10">
+                                <input type="text" name="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'" required="" class="single-input">
+                            </div>
+                            <div class="mt-10">
+                                <input type="text" name="message" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required="" class="single-input">
+                            </div>
+                            <div class="input-group-icon mt-10">
+                                <input type="submit" value="Send Message" >
+                            </div>
+                </form>
+            </div>
                     <div class="col-lg-3 offset-lg-1">
                         {!! $setting->contact !!}
                     </div>

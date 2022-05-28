@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminPanel\AdminServiceController;
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\AdminPanel\ImageController;
+use App\Http\Controllers\AdminPanel\MessageController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::get('/service',[HomeController::class,'service'])->name('service');
 Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 Route::get('/references',[HomeController::class,'references'])->name('references');
+Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
 
 
 
@@ -87,6 +89,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/{sid}','index')->name('index');
         Route::post('/store/{sid}','store')->name('store');
         Route::get('/destroy/{sid}/{id}','destroy')->name('destroy');
+    });
+
+    // ******************************** ADMIN MESSAGE ROUTES ***********************
+    Route::prefix('/message')->name('message.')->controller(MessageController::class)->group(function () {
+        Route::get('/','index')->name('index');
+        Route::get('/show/{id}','show')->name('show');
+        Route::post('/update/{id}','update')->name('update');
+        Route::get('/destroy/{id}','destroy')->name('destroy');
     });
 });
 

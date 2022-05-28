@@ -99,7 +99,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/message">
+            <a class="nav-link" href="{{route('admin.message.index')}}">
                 <i class="mdi mdi-message"></i>
                 Messages
             </a>
