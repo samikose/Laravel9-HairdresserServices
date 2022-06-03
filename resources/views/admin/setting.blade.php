@@ -7,6 +7,7 @@
 @endsection
 
 @section('content')
+    <div class="main-panel">
     <div id="page-wrapper">
 
         <div class="row">

@@ -13,7 +13,7 @@
                         <a href="{{route('admin.service.edit',['id'=>$data->id])}}" class="btn btn-outline-secondary btn-success btn-icon-text" style="width: 200px">Edit</a>
                     </div>
                     <div class="col-sm-3">
-                        <a href="{{route('admin.service.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-outline-secondary btn-danger btn-icon-text" style="width: 200px">Delete</a>
+                        <a href="{{route('admin.service.destroy',['id'=>$data->id])}}" onclick="return confirm('Deleting !! Are you sure ?')" class="btn btn-outline-secondary btn-success btn-icon-text" style="width: 200px">Delete</a>
                     </div>
 
                     <div class="col-sm-6">

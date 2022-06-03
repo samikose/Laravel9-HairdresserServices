@@ -84,7 +84,8 @@
                                 <input type="text" name="message" placeholder="Message" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Message'" required="" class="single-input">
                             </div>
                             <div class="input-group-icon mt-10">
-                                <input type="submit" value="Send Message" >
+                               <!-- <input type="submit" value="Send Message" >-->
+                                <button type="submit" value="Send Message" class="button button-contactForm boxed-btn" >Send</button>
                             </div>
                 </form>
             </div>

@@ -6,6 +6,7 @@
     <script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
 @endsection
 @section('content')
+    <div class="main-panel">
     <div class="content-wrapper">
         <section class="content-header">
             <div class="container-fluid">

@@ -4,14 +4,15 @@
 
 
 @section('content')
+    <div class="main-panel">
     <div class="content-wrapper">
         <section class="content-header">
             <div class="container-fluid">
                 <div class="row mb-2">
-                    <div class="col-sm-1">
+                    <div class="col-sm-9">
                         <h1>Edit Category: {{$data->title}}</h1>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item" href="{{route('admin.index')}}">Home</li>
                             <li class="breadcrumb-item active">Edit Category</li>
