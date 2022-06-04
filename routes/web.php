@@ -50,6 +50,7 @@ Route::get('/param/{id}/{number}',[HomeController::class,'param'])->name('param'
 
 //6- Route with post
 Route::post('/save',[HomeController::class,'save'])->name('save');
+Route::get('/servicedetail/{id}',[HomeController::class,'servicedetail'])->name('servicedetail');
 Route::get('/categoryservices/{id}/{slug}',[HomeController::class,'categoryservices'])->name('categoryservices');
 
 

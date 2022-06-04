@@ -9,6 +9,7 @@ use App\Models\Service;
 use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -79,15 +80,30 @@ class HomeController extends Controller
     public function service(){
         $page='home';
         $categorylist1=Category::limit(6)->get();
+        $servicelist1=Service::limit(6)->get();
         $sliderdata=Service::limit(4)->get();
         $setting= Setting::first();
         return view('home.service',[
             'categorylist1'=>$categorylist1,
+            'servicelist1'=>$servicelist1,
             'sliderdata'=>$sliderdata,
             'page'=>$page,
             'setting'=>$setting
         ]);
     }
+
+    public function servicedetail($id)
+    {
+        $page='home';
+        $data=Service::find($id);
+        $setting= Setting::first();
+        return view('home.servicedetail',[
+            'data'=>$data,
+            'page'=>$page,
+            'setting'=>$setting
+        ]);
+    }
+
 
     public function categoryservices($id){
 
