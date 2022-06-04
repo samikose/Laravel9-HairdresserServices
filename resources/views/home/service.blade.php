@@ -44,12 +44,12 @@
                         <div class="service-cap">
                             <h4><a href="#">{{$rs->title}}</a></h4>
                             <div class="col-md-4 mt-sm-30">
-                                <h3 class="mb-20">Unordered List</h3>
+                                <h3 class="mb-20">Service List</h3>
                                 <div class="">
                                     <ul class="unordered-list">
                                         @foreach($servicelist1 as $rs1)
                                             @if($rs->id == $rs1->category_id)
-                                                <li><a style="color: #af804d" href="{{route('servicedetail',['id'=>$rs1->id])}}">{{$rs->title}}</a></li>
+                                                <li><a style="color: #af804d" href="{{route('servicedetail',['id'=>$rs1->id])}}">{{$rs1->title}}</a></li>
                                             @endif
                                         @endforeach
                                     </ul>

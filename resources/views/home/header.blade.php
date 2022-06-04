@@ -52,7 +52,16 @@
                                 </nav>
                             </div>
                             <div class="header-right-btn f-right d-none d-lg-block ml-30">
-                                <a href="from.html" class="btn header-btn">became a member</a>
+                                @auth
+                                <div>
+                                    <strong style="color: white" class="text-uppercase">{{Auth::user()->name}}</strong>
+                                </div>
+                                    <a href="/logoutuser" class="btn header-btn">Logout</a>
+                                @endauth
+                                @guest
+                                <a href="/loginuser" class="btn header-btn">LOGIN</a>
+                                <a href="/registeruser" class="btn header-btn">JOIN</a>
+                                    @endguest
                             </div>
                         </div>
                     </div>
