@@ -24,6 +24,9 @@
                     </div>
                     <div class="col-xl-10 col-lg-10 col-md-10">
                         <div class="menu-main d-flex align-items-center justify-content-end">
+                            @php
+                                $mainCategories = \App\Http\Controllers\HomeController::maincategorylist()
+                            @endphp
                             <!-- Main-menu -->
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
@@ -32,11 +35,15 @@
                                         <li><a href="{{route('about')}}">About</a></li>
                                         <li><a href="{{route('service')}}">Services</a></li>
                                         <li><a href="{{route('references')}}">References</a></li>
-                                        <li><a href="blog.html">Blog</a>
+                                        <li><a href="blog.html">Categories</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="blog_details.html">Blog Details</a></li>
-                                                <li><a href="elements.html">Element</a></li>
+                                                @foreach($mainCategories as $rs)
+                                                <li><a href="blog.html">{{$rs->title}}</a>
+                                                    @if(count($rs->children))
+                                                        @include('home.categorytree',['children'=>$rs->children])
+                                                    @endif
+                                                </li>
+                                                @endforeach
                                             </ul>
                                         </li>
                                         <li><a href="{{route('faq')}}">FAQ</a></li>

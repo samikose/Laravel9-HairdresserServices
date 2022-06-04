@@ -12,6 +12,10 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public static function maincategorylist()
+    {
+        return Category::where('parent_id','=',0)->with('children')->get();
+    }
     //
     public function index()
     {
@@ -83,6 +87,12 @@ class HomeController extends Controller
             'page'=>$page,
             'setting'=>$setting
         ]);
+    }
+
+    public function categoryservices($id){
+
+        echo "födghvfdöhfg";
+        exit();
     }
 
     public function test(){
