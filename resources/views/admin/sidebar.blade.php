@@ -87,7 +87,7 @@
             </a>
         </li>
         <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/comment">
+            <a class="nav-link" href="{{route('admin.comment.index')}}">
                 <i class="mdi mdi-comment"></i>
                 Comments
             </a>
