@@ -37,6 +37,7 @@
             <div class="row">
                 @foreach($categorylist1 as $rs )
                 <div class="col-xl-4 col-lg-4 col-md-6">
+                    @if($rs->parent_id == 0)
                     <div class="services-caption text-center mb-30">
                         <div class="team-img">
                             <a href="#"><img src="{{Storage::url($rs->image)}}" style="height: 200px"></a>
@@ -53,10 +54,12 @@
                                             @endif
                                         @endforeach
                                     </ul>
+
                                 </div>
                             </div>
                         </div>
                     </div>
+                @endif
                 </div>
                 @endforeach
             </div>

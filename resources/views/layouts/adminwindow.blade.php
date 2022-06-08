@@ -20,14 +20,13 @@
     @yield("head")
 </head>
 <body>
-<div class="container-scroller">
 
-<div>
 @yield('content')
 <div/>
 
-
-@yield('foot')
+<div>
+    @yield('foot')
+</div>
 
 
 </body>

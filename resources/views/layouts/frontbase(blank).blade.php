@@ -13,6 +13,7 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets')}}/img/favicon.ico">
 
+
     <!-- CSS here -->
     <link rel="stylesheet" href="{{asset('assets')}}/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('assets')}}/css/owl.carousel.min.css">

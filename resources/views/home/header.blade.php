@@ -35,14 +35,14 @@
                                         <li><a href="{{route('about')}}">About</a></li>
                                         <li><a href="{{route('service')}}">Services</a></li>
                                         <li><a href="{{route('references')}}">References</a></li>
-                                        <li><a href="blog.html">Categories</a>
+                                        <li><a href="{{route('service')}}">Categories</a>
                                             <ul class="submenu">
                                                 @foreach($mainCategories as $rs)
-                                                <li><a href="blog.html">{{$rs->title}}</a>
-                                                    @if(count($rs->children))
-                                                        @include('home.categorytree',['children'=>$rs->children])
-                                                    @endif
-                                                </li>
+                                                    <li><a href="{{route('service')}}">{{$rs->title}}</a>
+                                                        @if(count($rs->children))
+                                                            @include('home.categorytree',['children'=>$rs->children])
+                                                        @endif
+                                                    </li>
                                                 @endforeach
                                             </ul>
                                         </li>
@@ -54,7 +54,7 @@
                             <div class="header-right-btn f-right d-none d-lg-block ml-30">
                                 @auth
                                 <div>
-                                    <strong style="color: white" class="text-uppercase">{{Auth::user()->name}}</strong>
+                                    <strong style="color: white" class="text-uppercase"><a href="{{route('userpanel.index')}}">{{Auth::user()->name}}</a></strong>
                                 </div>
                                     <a href="/logoutuser" class="btn header-btn">Logout</a>
                                 @endauth

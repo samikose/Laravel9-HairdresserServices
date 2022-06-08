@@ -24,7 +24,6 @@
                                     <th> Status </th>
                                     <th style="width: 40px">Edit</th>
                                     <th style="width: 40px">Delete</th>
-                                    <th style="width: 40px">Show</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -37,7 +36,6 @@
                                     <td><a href="{{route('admin.faq.edit',['id'=>$rs->id])}}" class="btn btn-outline-secondary btn-icon-text">Edit</a></td>
                                     <td><a href="{{route('admin.faq.destroy',['id'=>$rs->id])}}" class="btn btn-outline-secondary btn-danger btn-icon-text"
                                         onclick="return confirm('Deleting !! Are you sure ?')">Delete</a></td>
-                                    <td><a href="{{route('admin.faq.show',['id'=>$rs->id])}}" class="btn btn-outline-secondary btn-success btn-icon-text">Show</a></td>
                                 </tr>
                                 @endforeach
                                 </tbody>

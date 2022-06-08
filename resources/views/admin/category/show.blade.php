@@ -22,7 +22,7 @@
                     <div class="col-sm-6">
 
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item" href="{{route('admin.index')}}">Home</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a></li>
                             <li class="breadcrumb-item active">Show Category</li>
                         </ol>
                     </div>
@@ -55,7 +55,11 @@
                                 </tr>
                                 <tr>
                                     <th>Image</th>
-                                    <td></td>
+                                    <td>
+                                        @if ($data->image)
+                                            <img src="{{Storage::url($data->image)}}" style="height: 40px">
+                                        @endif
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>Status</th>

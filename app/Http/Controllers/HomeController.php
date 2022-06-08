@@ -19,14 +19,19 @@ class HomeController extends Controller
     {
         return Category::where('parent_id','=',0)->with('children')->get();
     }
+
     //
     public function index()
     {
         $page='home';
         $setting= Setting::first();
+        $servicelist1=Service::limit(6)->get();
+        $images = DB::table('images')->where('service_id', 14)->get();
         return view('home.index',[
             'page'=>$page,
-            'setting'=>$setting
+            'setting'=>$setting,
+            'servicelist1'=>$servicelist1,
+            'images' => $images,
         ]);
     }
 
@@ -107,6 +112,7 @@ class HomeController extends Controller
             'page'=>$page,
             'setting'=>$setting
         ]);
+
     }
 
     public function servicedetail($id)
@@ -126,8 +132,14 @@ class HomeController extends Controller
 
     public function categoryservices($id){
 
-        echo "födghvfdöhfg";
-        exit();
+        $category= Category::find($id);
+        $services=DB::table('services')->where('category_id',$id)->get();
+        $setting= Setting::first();
+        return view('home.categoryservices',[
+           'category'=>$category,
+            'services'=>$services,
+            'setting'=>$setting,
+        ]);
     }
 
     public function test(){

@@ -105,7 +105,17 @@
             <div class="col-md-6">
                 <img src="{{Storage::url($data->image)}}" alt="" class="img-fluid">
                 <div class="comments-area">
-                    <h4>05 Comments</h4>
+                    @php
+                        $average = $data->comment->average('rate');
+                    @endphp
+                    <h4>
+                        {{$data->comment->count('id')}} Comments - {{number_format($average,1)}}
+                        <span class="fa fa-star @if($average>=1) checked @endif"></span>
+                        <span class="fa fa-star @if($average>=2) checked @endif"></span>
+                        <span class="fa fa-star @if($average>=3) checked @endif"></span>
+                        <span class="fa fa-star @if($average>=4) checked @endif"></span>
+                        <span class="fa fa-star @if($average>=5) checked @endif"></span>
+                    </h4>
                     @foreach($reviews as $rs)
                     <div class="comment-list">
                         <div class="single-comment justify-content-between d-flex">
