@@ -1,18 +1,14 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\AdminPanel;
 
+use App\Http\Controllers\Controller;
 use App\Models\Appointment;
-use App\Models\Category;
-use App\Models\Comment;
 use App\Models\Service;
-use App\Models\Setting;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 
-class UserController extends Controller
+class AcceptedController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,24 +17,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('home.user.index');
-    }
-
-    public function reviews()
-    {
-        $comments= Comment::where('user_id','=',Auth::id())->get();
-        return view('home.user.comments',[
-            'comments'=>$comments
-        ]);
-    }
-
-    public function appointments()
-    {
-        $data= Appointment::where('user_id','=',Auth::id())->get();
+        $data=Appointment::all();
         $users=User::all();
         $service=Service::all();
-        return view('home.user.appointments',[
-            'data'=>$data,
+        return view('admin.acceptedappointment.index',[
+            'data' => $data,
             'users'=>$users,
             'service'=>$service
         ]);
@@ -73,7 +56,14 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $data=Appointment::find($id);
+        $users=User::all();
+        $service=Service::all();
+        return view('admin.acceptedappointment.show',[
+            'data' => $data,
+            'users'=>$users,
+            'service'=>$service
+        ]);
     }
 
     /**
@@ -96,7 +86,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data=Appointment::find($id);
+        $data->payment= $request->payment;
+        $data->status = $request->status;
+        $data->save();
+        return redirect(route('admin.acceptedappointment.show',['id'=>$id]));
     }
 
     /**
@@ -107,22 +101,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
-    }
-
-    public function reviewdestroy($id)
-    {
-        //
-        $data=Comment::find($id);
-        $data->delete();
-        return redirect(route('userpanel.reviews'));
-    }
-
-    public function appointmentdestroy($id)
-    {
-        //
         $data=Appointment::find($id);
         $data->delete();
-        return redirect(route('userpanel.appointments'));
+        return redirect(route('admin.acceptedappointment.index'));
     }
 }

@@ -68,9 +68,9 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="../../index.html">New Appointment</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../index.html">Accepted Appointment</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="../../index.html">Completed Appointment</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.newappointment.index')}}">New Appointment</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.acceptedappointment.index')}}">Accepted Appointment</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{route('admin.completedappointment.index')}}">Completed Appointment</a></li>
                 </ul>
             </div>
         </li>
@@ -110,12 +110,7 @@
                 Users
             </a>
         </li>
-        <li class="nav-item menu-items">
-            <a class="nav-link" href="/admin/social">
-                <i class="mdi mdi-apps"></i>
-                Social
-            </a>
-        </li>
+
         <li class="nav-header">LABELS</li>
         <li class="nav-item">
             <a href="/admin/setting" class="nav-link">

@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Appointment;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Faq;
 use App\Models\Message;
+use App\Models\RoleUser;
 use App\Models\Service;
 use App\Models\Setting;
 use App\Models\User;
@@ -59,6 +61,18 @@ class HomeController extends Controller
         ]);
     }
 
+    public function appointment()
+    {
+        $setting= Setting::first();
+        $servicelist1=Service::limit(6)->get();
+        $userlist1=User::limit(6)->get();
+        return view('home.appointment',[
+            'setting'=>$setting,
+            'servicelist1'=>$servicelist1,
+            'userlist1'=>$userlist1,
+        ]);
+    }
+
     public function faq()
     {
         $setting= Faq::first();
@@ -84,9 +98,27 @@ class HomeController extends Controller
         return redirect()->route('contact')->with('info','Your message has been sent, Thank You.');
     }
 
+    public function storeappointment(Request $request)
+    {
+        //dd($request);
+        $data = new Appointment();
+        $data->user_id = Auth::id();
+        $data->service_id = $request->input('service_id');
+        $data->worker_id = $request->input('worker_id');
+        $data->date = $request->input('date');
+        $data->time = $request->input('time');
+        $data->phone = $request->input('phone');
+        $data->email = $request->input('email');
+        $data->note = $request->input('note');
+        $data->ip=request()->ip();
+        $data->save();
+
+        return redirect()->route('appointment')->with('success','Your appointment has been created, Thank You.');
+    }
+
     public function storecomment(Request $request)
     {
-        // dd($request);
+         // dd($request);
         $data = new Comment();
         $data->user_id = Auth::id(); //Logged in user id
         $data->service_id = $request->input('service_id');
@@ -102,7 +134,7 @@ class HomeController extends Controller
     public function service(){
         $page='home';
         $categorylist1=Category::limit(6)->get();
-        $servicelist1=Service::limit(6)->get();
+        $servicelist1=Service::limit(20)->get();
         $sliderdata=Service::limit(4)->get();
         $setting= Setting::first();
         return view('home.service',[

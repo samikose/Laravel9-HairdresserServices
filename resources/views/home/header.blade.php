@@ -38,11 +38,14 @@
                                         <li><a href="{{route('service')}}">Categories</a>
                                             <ul class="submenu">
                                                 @foreach($mainCategories as $rs)
+                                                    @if($rs->id != 13)
                                                     <li><a href="{{route('service')}}">{{$rs->title}}</a>
+                                                        @endif
                                                         @if(count($rs->children))
                                                             @include('home.categorytree',['children'=>$rs->children])
                                                         @endif
                                                     </li>
+
                                                 @endforeach
                                             </ul>
                                         </li>

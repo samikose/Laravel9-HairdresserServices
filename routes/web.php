@@ -1,9 +1,12 @@
 <?php
 
+use App\Http\Controllers\AdminPanel\AcceptedController;
 use App\Http\Controllers\AdminPanel\AdminServiceController;
 use App\Http\Controllers\AdminPanel\AdminUserController;
+use App\Http\Controllers\AdminPanel\AppointmentController;
 use App\Http\Controllers\AdminPanel\CategoryController;
 use App\Http\Controllers\AdminPanel\CommentController;
+use App\Http\Controllers\AdminPanel\CompletedController;
 use App\Http\Controllers\AdminPanel\FaqController;
 use App\Http\Controllers\AdminPanel\ImageController;
 use App\Http\Controllers\AdminPanel\MessageController;
@@ -39,10 +42,13 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/service',[HomeController::class,'service'])->name('service');
 Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('/appointment',[HomeController::class,'appointment'])->name('appointment');
 Route::get('/references',[HomeController::class,'references'])->name('references');
 Route::post('/storemessage',[HomeController::class,'storemessage'])->name('storemessage');
 Route::get('/faq',[HomeController::class,'faq'])->name('faq');
 Route::post('/storecomment',[HomeController::class,'storecomment'])->name('storecomment');
+Route::post('/storeappointment',[HomeController::class,'storeappointment'])->name('storeappointment');
+
 
 Route::view('/loginuser','home.login')->name('loginuser');;
 Route::view('/registeruser','home.register')->name('registeruser');;
@@ -74,6 +80,8 @@ Route::prefix('userpanel')->name('userpanel.')->controller(UserController::class
     Route::get('/','index')->name('index');
     Route::get('/reviews','reviews')->name('reviews');
     Route::get('/reviewdestroy/{id}', 'reviewdestroy')->name('reviewdestroy');
+    Route::get('/appointments','appointments')->name('appointments');
+    Route::get('/appointmentdestroy/{id}', 'appointmentdestroy')->name('appointmentdestroy');
 
 });
 
@@ -133,6 +141,30 @@ Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
 
     // ******************************** ADMIN COMMENT ROUTES ***********************
     Route::prefix('/comment')->name('comment.')->controller(CommentController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    });
+
+    // ******************************** ADMIN NEW APPOINTMENT ROUTES ***********************
+    Route::prefix('/newappointment')->name('newappointment.')->controller(AppointmentController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    });
+
+    // ******************************** ADMIN ACCEPTED APPOINTMENT ROUTES ***********************
+    Route::prefix('/acceptedappointment')->name('acceptedappointment.')->controller(AcceptedController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/show/{id}', 'show')->name('show');
+        Route::post('/update/{id}', 'update')->name('update');
+        Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    });
+
+    // ******************************** ADMIN COMPLETED APPOINTMENT ROUTES ***********************
+    Route::prefix('/completedappointment')->name('completedappointment.')->controller(CompletedController::class)->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/show/{id}', 'show')->name('show');
         Route::post('/update/{id}', 'update')->name('update');

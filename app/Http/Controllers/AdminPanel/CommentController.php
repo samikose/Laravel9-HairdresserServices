@@ -92,5 +92,8 @@ class CommentController extends Controller
     public function destroy($id)
     {
         //
+        $data=Comment::find($id);
+        $data->delete();
+        return redirect('admin/comment');
     }
 }

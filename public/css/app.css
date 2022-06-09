@@ -800,6 +800,7 @@ select {
   padding-bottom: 0.5714286em;
   padding-left: 0.5714286em;
 }
+
 .prose :where(tbody tr):not(:where([class~="not-prose"] *)) {
   border-bottom-width: 1px;
   border-bottom-color: var(--tw-prose-td-borders);
